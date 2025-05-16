@@ -1,0 +1,15 @@
+package projeto_unidade2_RPG_diablo;
+
+public class Deckard {
+    public void identificar_pergaminho(Pergaminho pergaminho) {
+        System.out.println("\nDeckard Cain pega o pergaminho e começa a murmurar encantamentos...");
+        pergaminho.identificar();
+        System.out.println("'Ah! Este é um " + pergaminho.getNome() + "'");
+        System.out.println("'" + pergaminho.getDescricao() + "'");
+        System.out.println("'Agora você pode usá-lo quando quiser.'");
+    }
+
+    public void ler_pergaminho(Identificavel item) {
+        item.identificar(); // chama o método que está definido na interface Identificavel
+    }
+}
