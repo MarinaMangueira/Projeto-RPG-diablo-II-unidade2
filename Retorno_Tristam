@@ -1,0 +1,128 @@
+package projeto_unidade2_RPG_diablo;
+
+import java.util.Scanner;
+
+public class Retorno_Tristram {
+    public void realizar_retorno(Player_pos_quest player_pos_quest, Deckard deckard) {
+        Scanner leitor = new Scanner(System.in);
+
+        System.out.println("\n\nOs primeiros raios de sol dourado rasgam a névoa pestilenta que envolvia o labirinto,");
+        System.out.println("banhando a paisagem devastada em uma luz que parece quase... sagrada.");
+        System.out.println("Cain estende uma mão trêmula, deixando os dedos dançarem no feixe de luz como um");
+        System.out.println("prisioneiro provando a liberdade após longos anos nas trevas.\n");
+
+        System.out.println("Tristram, outrora envolta em desespero, agora pulsa com um frêmito de esperança.");
+        System.out.println("Akara espera no portão da vila, suas lágrimas limpando caminho através da poeira");
+        System.out.println("de incontáveis noites sem dormir. Os poucos moradores restantes se aglomeram,");
+        System.out.println("seus olhos famintos não por comida, mas por respostas... por confirmação de que");
+        System.out.println("o pesadelo realmente terminou.\n");
+
+        System.out.println("Cain ergue o cajado com esforço, sua voz ressoando com uma força que belies seu estado frágil:");
+        System.out.println("\n    'Andariel caiu. Mas esta é apenas a primeira batalha em uma guerra que mal começou.'\n");
+
+        System.out.println("Enquanto a multidão murmura, Akara se aproxima de você, depositando nas suas mãos:");
+        System.out.println("- Um saco de couro pesado com 50 peças de ouro que tilintam como sinos de redenção");
+        System.out.println("- Dois pergaminhos antigos, seus selos ainda intactos, pulsando com magia contida\n");
+
+        System.out.println("    'Guarde-os bem, campeão,' ela sussurra. 'Estes são mais que recompensas...'");
+        System.out.println("    'São ferramentas para os desafios que virão. O verdadeiro mal ainda aguarda.'\n");
+
+        System.out.println("O vento sopra suavemente, carregando o cheiro de terra molhada e... algo mais?");
+        System.out.println("Uma promessa? Um aviso? Você não pode ter certeza. Mas sabe que sua jornada");
+        System.out.println("está longe de terminar.");
+        
+        // Atualiza atributos do jogador
+        player_pos_quest.setGold(player_pos_quest.getGold() + 50);
+        player_pos_quest.setVida(50);
+        player_pos_quest.setMana(20);
+
+        // Pergaminhos recebidos como recompensa
+        Pergaminho pergaminho_portal = new Pergaminho("Não identificado", "Um pergaminho com runas antigas", false);
+        Pergaminho pergaminho_identificacao = new Pergaminho("Não identificado", "Um pergaminho com símbolos misteriosos", false);
+        
+        System.out.println("\nDeckard Cain: ");
+        System.out.println("'Vejo que você encontrou alguns pergaminhos interessantes durante sua jornada.'");
+        System.out.println("'Posso identificá-los para você, mas meu conhecimento tem um custo.'");
+
+        // caso o jogador queira identificar os pergaminhos
+        boolean identificando = true; 
+        while (identificando) {
+            System.out.println("\nSeu ouro atual: " + player_pos_quest.getGold());
+            System.out.println("\nPergaminhos disponíveis para identificação:");
+            System.out.println("1 - " + pergaminho_portal.getNome() + " (Custo: 20 de ouro)");
+            System.out.println("2 - " + pergaminho_identificacao.getNome() + " (Custo: 15 de ouro)");
+            System.out.println("3 - Sair");
+            System.out.print("Escolha uma opção: ");
+            
+            int escolha = leitor.nextInt();
+
+            switch (escolha) {
+                case 1:
+                    if (pergaminho_portal.isIdentificado()) {
+                        System.out.println("Este pergaminho já foi identificado!");
+                    } 
+                    else if (player_pos_quest.getGold() >= 20) {
+                        player_pos_quest.setGold(player_pos_quest.getGold() - 20);
+                        deckard.identificar_pergaminho(pergaminho_portal); 
+                    } 
+                    else {
+                        System.out.println("Você não tem ouro suficiente para esta identificação!");
+                    }
+                    break;
+                case 2:
+                    if (pergaminho_identificacao.isIdentificado()) {
+                        System.out.println("Este pergaminho já foi identificado!");
+                    } 
+                    else if (player_pos_quest.getGold() >= 15) {
+                        player_pos_quest.setGold(player_pos_quest.getGold() - 15);
+                        deckard.identificar_pergaminho(pergaminho_identificacao);
+                    } 
+                    else {
+                        System.out.println("Você não tem ouro suficiente para esta identificação!");
+                    }
+                    break;
+                case 3:
+                    identificando = false;
+                    break;
+                default:
+                    System.out.println("Opção inválida!");
+            }
+        }
+
+        // Status final
+        System.out.println("\n--------------------");
+        System.out.println("    Status final ");
+        System.out.println("--------------------");
+        System.out.println("Vida: " + player_pos_quest.getVida());
+        System.out.println("Mana: " + player_pos_quest.getMana());
+        System.out.println("Gold: " + player_pos_quest.getGold());
+        System.out.println("--------------------");
+        
+        System.out.println("\n\n");
+        System.out.println("        A luz triunfou... mas sua vitória é frágil como o último suspiro do crepúsculo.");
+        System.out.println("\n");
+        System.out.println("Tristram respira aliviada com o retorno de Deckard Cain, suas ruínas agora banhadas");
+        System.out.println("por um vislumbre de esperança. Os sinos da catedral ecoam como lamentos ancestrais,");
+        System.out.println("celebrando não o fim, mas um breve repouso na escuridão.");
+        System.out.println("\n\n");
+        System.out.println("        Mas nas profundezas onde até os corajosos não ousam pisar...");
+        System.out.println("        Algo desperta.");
+        System.out.println("\n");
+        System.out.println("O ar se enche do cheiro de enxofre. Sombras se contorcem sob a terra, como garras afiadas");
+        System.out.println("prontas para rasgar o véu do mundo. O verdadeiro mal não foi derrotado — Diablo aguarda.");
+        System.out.println("Seu ódio é paciente. Sua vingança, inevitável.");
+        System.out.println("\n\n");
+        System.out.println("        Prepare-se, viajante.");
+        System.out.println("        O que vem não é uma batalha...");
+        System.out.println("        É o fim de tudo.");
+        System.out.println("\n");
+        System.out.println("A escuridão se aproxima.");
+        System.out.println("E desta vez... ela virá implacável.");
+        System.out.println("\n\n");
+        System.out.println("        --> TO BE CONTINUED");
+        System.out.println("\n\n");
+
+        leitor.close();
+    }
+}
+
