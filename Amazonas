@@ -1,0 +1,26 @@
+package projeto_unidade2_RPG_diablo;
+
+public class Amazonas extends Player {
+    public Amazonas(String nome) {
+        super(nome);
+        this.classe = "Amazonas";
+        this.hab1 = "Ataque básico (ataca com a lança)";
+        this.hab2 = "Lançada (arremessa a lança em linha reta)";
+        this.hab3 = "Barragem (atira várias flechas ao mesmo tempo)";
+    }
+
+    @Override
+    public String toString() {
+        return "\n--------------------\n" +
+               "      AMAZONAS        \n" +
+               "--------------------\n" +
+               " Nome   : " + nome + "\n" +
+               " Classe : " + classe + "\n" +
+               " Vida   : " + vida + "\n" +
+               " Mana   : " + mana + "\n" +
+               " Habilidade 1: " + hab1 + "\n" +
+               " Habilidade 2: " + hab2 + "\n" +
+               " Habilidade 3: " + hab3 + "\n" +
+               "--------------------\n";
+    }
+}
