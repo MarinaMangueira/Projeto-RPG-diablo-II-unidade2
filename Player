@@ -1,0 +1,61 @@
+package projeto_unidade2_RPG_diablo;
+
+public class Player {
+    protected String nome;
+    protected String classe;
+    protected String hab1;
+    protected String hab2;
+    protected String hab3;
+    protected int vida = 30;
+    protected int mana = 10;
+
+    // construtor vazio
+    public Player() {
+        this.nome = "Jogador sem nome";  // valor padrão
+        this.classe = "Sem classe";      
+        this.hab1 = "Sem habilidade";    
+        this.hab2 = "Sem habilidade";    
+        this.hab3 = "Sem habilidade";    
+    }
+
+    public Player(String nome) {
+        this.nome = nome;
+    }
+
+    // método para exibir as informações do jogador
+    public void exibir_player() {
+        System.out.println(this.toString());  // usando o toString() sobrescrito na classe específica
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+
+    public int getMana() {
+        return mana;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+
+    // sobrescrita do método toString
+    @Override
+    public String toString() {
+        return "\n--------------------\n" +
+               "       JOGADOR       \n" +
+               "--------------------\n" +
+               " Nome   : " + nome + "\n" +
+               " Classe : " + classe + "\n" +
+               " Vida   : " + vida + "\n" +
+               " Mana   : " + mana + "\n" +
+               " Habilidade 1: " + hab1 + "\n" +
+               " Habilidade 2: " + hab2 + "\n" +
+               " Habilidade 3: " + hab3 + "\n" +
+               "--------------------\n";
+    }
+}
