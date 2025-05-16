@@ -1,0 +1,20 @@
+package projeto_unidade2_RPG_diablo;
+
+import java.util.Random;
+
+public class Andariel {
+	Random gerador = new Random();
+	String nome;
+	int vidaMaxima = 50;
+	int vida;
+
+	public Andariel(String nome) {
+		this.nome = nome;
+	    this.vida = vidaMaxima;
+	}
+
+	public int atacar() {
+		return gerador.nextInt(7); // gera um número aleatório entre 0 e 6
+	}	
+}
+
