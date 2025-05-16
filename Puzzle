@@ -1,0 +1,194 @@
+package projeto_unidade2_RPG_diablo;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class Puzzle {
+    public static boolean iniciar_missao() { // retorna true se o jogo avançar, false se não avançar
+        Scanner leitor = new Scanner(System.in);
+        Random random = new Random();
+
+        System.out.println("\n");
+        System.out.println("Após comprar algumas poções com o Mercador, você resolve olhar os outros comerciantes de Tristram.");
+        System.out.println("\n");
+        System.out.println("Porém, assim que você se vira, o Mercador pousa uma mão em seu ombro e diz, em voz baixa:");
+        System.out.println("\n");
+        System.out.println("    'Ah, viajante...' ele começa, olhando ao redor antes de continuar.");
+        System.out.println("    'Ouviu os ventos sussurrando esta noite passada?'");
+        System.out.println("\n");
+        System.out.println("Seus dedos se apertam no seu ombro enquanto ele inclina-se para frente:");
+        System.out.println("\n");
+        System.out.println("    'Deckard Cain, o velho sábio... desapareceu na última lua cheia.'");
+        System.out.println("    'Ninguém na vila tem coragem de buscá-lo nas ruínas...'");
+        System.out.println("\n");
+        System.out.println("Ele solta seu ombro e recua, apontando discretamente para o acampamento:");
+        System.out.println("\n");
+        System.out.println("    'Se alguém puder encontrá-lo... é você.'");
+        System.out.println("    'Fale com Akara. Ela sabe mais do que admite.'");
+        System.out.println("\n");
+
+        System.out.println("\nO que você deseja fazer agora?");
+        System.out.println(" 1 - Ir ver Akara");
+        System.out.println(" 2 - Perguntar ao Mercardor quem é Deckard Cain");
+        System.out.print("Escolha uma opção: ");
+        int escolha = leitor.nextInt();
+
+        if (escolha == 1) {
+            return visitar_Akara(leitor, random);
+        } 
+        else if (escolha == 2) {
+        	System.out.println("\n");
+        	System.out.println("O Mercador afasta alguns frascos de poção e se inclina sobre o balcão, sua voz assumindo um tom grave:");
+        	System.out.println("\n");
+        	System.out.println("    'Ah, o velho Deckard Cain...' ele começa, os olhos escurecendo com a lembrança.");
+        	System.out.println("    'Não é apenas um sábio, mas a última muralha contra as trevas que");
+        	System.out.println("    espreitam nas bordas do nosso mundo.'");
+        	System.out.println("\n");
+        	System.out.println("Seus dedos tamborilam nervosamente na madeira do balcão:");
+        	System.out.println("\n");
+        	System.out.println("    'Seu conhecimento atravessa eras - mais profundo que as Catacumbas de Tristram,");
+        	System.out.println("    mais vasto que os Arquivos de Vizjerei. Ele é o último Horadrim,'");
+        	System.out.println("    o mercador baixa a voz a um quase sussurro,");
+        	System.out.println("    'os únicos que conhecem os segredos para trancar o Mal em sua prisão eterna.'");
+        	System.out.println("\n");
+        	System.out.println("Um calafrio percorre sua espinha quando o Mercador continua:");
+        	System.out.println("\n");
+        	System.out.println("    'Com Cain desaparecido... as correntes que prendem o Diablo estão se desfazendo.'");
+        	System.out.println("    'Você deve encontrá-lo, não apenas por Tristram, mas por todos nós.'");
+        	System.out.println("    O Mercador aperta seu pulso com urgência,");
+        	System.out.println("    'Pois quando o último Horadrim cair... o mundo cairá com ele.'");
+        	System.out.println("\n");
+        	System.out.println("Você sente o peso das palavras do Mercador enquanto se afasta do balcão,");
+        	System.out.println("sua decisão já tomada - é hora de encontrar Akara.");
+            return visitar_Akara(leitor, random);
+        } 
+        else {
+            System.out.println("\nOpção inválida. O mercador apenas o observa em silêncio...");
+            return false; // se digitar a opção errada, o jogo não continua
+        }
+    }
+
+    // método o desafio do labirinto
+    private static boolean visitar_Akara(Scanner leitor, Random random) { 
+    	System.out.println("\nNa fonte sagrada, Akara aguarda entre velas tremulantes:\n");
+    	System.out.println("    'Cain está em perigo,' ela diz sem preâmbulos.");
+    	System.out.println("    'O Labirinto dos Horadrim ao norte o mantém cativo.'\n");
+    	System.out.println("Suas mãos traçam sinais no ar:");
+    	System.out.println("\n");
+    	System.out.println("    'Vá rápido. As sombras já cochicham seu nome.'");
+        
+        System.out.println("\nVocê aceita a missão de resgatá-lo? ");
+        System.out.println(" 1 - Sim");
+        System.out.println(" 2 - Não");
+        System.out.print("Escolha sua ação: ");
+        int aceitar = leitor.nextInt();
+
+        if (aceitar == 1) {
+            int labirinto = random.nextInt(3) + 1; // sorteio de 3 lugares para o labirinto
+            System.out.println("\nAkara segura seu rosto entre as mãos, seus olhos refletindo visões distantes:");
+            System.out.println("\n    'O oráculo não mente...' ela sussurra, com voz rouca pela fadiga mística");
+            System.out.println("    'Cain está preso no coração do " + labirinto + ".'");
+            System.out.println("    'Rogo-lhe, viajante... volte com ele são e salvo.'");
+            System.out.println("    'Pois quando as trevas engolirem os sábios... restarão apenas gritos.'\n");
+
+            System.out.println("Você sente o peso da profecia enquanto avança pela entrada arqueada do labirinto.");
+            System.out.println("Um vento gélido lhe envolve, carregando o cheiro de terra úmida e... algo mais antigo.");
+            System.out.println("\nCada passo ecoa nas paredes de pedra como um batimento cardíaco agonizante.");
+            System.out.println("A escuridão aqui é viva - palpita contra sua pele, sussurra em línguas esquecidas,");
+            System.out.println("testando sua coragem. Você sente nos ombros o peso de olhos invisíveis,");
+            System.out.println("famintos, calculando cada movimento, cada hesitação...\n");
+
+            System.out.println("Após incontáveis voltas entre corredores que parecem se rearranjar sozinhos,");
+            System.out.println("você finalmente alcança o núcleo do labirinto. Diante de você,");
+            System.out.println("ergue-se um portal arcanico de pedra negra, pulsando com runas proibidas.");
+            System.out.println("\nO ar aqui é espesso como melado, pesado com magia ancestral.");
+            System.out.println("Cinco pedras mágicas irradiam uma luz pálida, dispostas em padrão celestial.");
+            System.out.println("Elas aguardam... exigem... a sequência correta que quebrará o selo.");
+            System.out.println("Um erro, e o próprio labirinto poderá se voltar contra você...");
+            
+            int ordem_correta[] = {3, 4, 1, 5, 2}; // ordem das pedras
+            int tentativa = 1; // quantidade de tentativas feitas
+            boolean sucesso = false;
+
+            do {
+                System.out.println("\nTentativa #" + tentativa);
+                sucesso = true;
+
+                for (int i = 0; i < ordem_correta.length; i++) {
+                    System.out.print("Informe a pedra #" + (i + 1) + ": ");
+                    int entrada = leitor.nextInt();
+
+                    if (entrada != ordem_correta[i]) {
+                        System.out.println("\nA pedra emite um som agudo e se apaga...");
+                        System.out.println("Você sente que deve tentar novamente.");
+                        sucesso = false; // se estiver errado o palpite, erra 
+                    }
+                }
+
+                if (sucesso) { // se acertar, prossegue na história
+                	System.out.println("\nAs pedras pulsam com luz rubra, desenhando no ar a sequência ancestral...");
+                	System.out.println("Com um rangido que ecoa como o gemido de um moribundo, a porta se abre revelando:");
+                	System.out.println("\nDeckard Cain - outrora sábio, agora apenas um vulto acorrentado.");
+                	System.out.println("Seu corpo está marcado por símbolos profanos, mas seus olhos...");
+                	System.out.println("Seus olhos ainda guardam um último fragmento de lucidez quando encontram os seus.\n");
+
+                	System.out.println("    'F-f...fuja...' ele cospe, com voz tão frágil quanto um fio de teia de aranha");
+                	System.out.println("    'Ela... já... está...'");
+
+                	System.out.println("\nAntes que a sentença se complete, o ar se solidifica.");
+                	System.out.println("O frio não vem do gelo - vem do VÁCUO, da ausência de tudo que é vivo.");
+                	System.out.println("\nDas sombras mais profundas, a escuridão PARTA-SE AO MEIO...");
+
+                	System.out.println("\nEla surge como um pesadelo feito carne:");
+                	System.out.println("Andariel - A Senhora da Dor");
+
+                	System.out.println("Seus passos não ecoam - eles SUGAM o som do ambiente.");
+                	System.out.println("Quando seus lábios se partem em sorriso, você vê:");
+                	System.out.println("    - Crianças esfoladas bordadas em sua pele demoníaca");
+                	System.out.println("    - Séculos de torturas incontáveis em seus olhos flamejantes\n");
+
+                	System.out.println("    'Doce carne...' sibila, com voz que arranha seus ossos por dentro");
+                	System.out.println("    'Você vai GRITAR como os outros...");
+                	System.out.println("    Mas para você... prometo devagar.'");
+
+                	System.out.println("\nSeus dedos se estendem - cada articulação um instrumento de tormento.");
+                	System.out.println("Você SENTE antes mesmo do toque:");
+                	System.out.println("    - O cheiro de seu próprio sangue fervendo");
+                	System.out.println("    - O gosto de ferro de seus dentes quebrando");
+                	System.out.println("    - O eco de mil almas gritando em uníssono\n");
+
+                	System.out.println("A ÚLTIMA COISA que você escuta antes do primeiro golpe:");
+                	System.out.println("O som de Cain chorando...");
+                	
+                	return true; // concluiu
+                }
+
+                tentativa++; 
+            } while (tentativa <= 10); // quantidade de tentativas
+            
+            System.out.println("\nVocê falhou em desvendar o enigma após 10 tentativas...");
+            System.out.println("O labirinto se fecha novamente. Talvez em outra hora...");
+            return false;
+        } 
+        else if (aceitar == 2) { // caso recuse
+        	System.out.println("\nAkara fecha os olhos por um longo momento, suas mãos tremulas repousando sobre o grimório ancestral.");
+        	System.out.println("Quando os abre novamente, seus olhos brilham com lágrimas não derramadas:\n");
+        	System.out.println("    'Compreendo sua decisão, viajante...' sua voz é suave como seda rasgada");
+        	System.out.println("    'Mas lembre-se - cada palavra de Cain carrega séculos de sabedoria Horadrim.'");
+        	System.out.println("    'Sem ele...' ela engole seco, 'sem ele, as trevas escreverão nosso epitáfio.'\n");
+        	System.out.println("Seus dedos traçam um sigilo protetor no ar entre vocês, deixando um rastro de pó de estrelas efêmero:");
+        	System.out.println("\n");
+        	System.out.println("    'Que os Anciãos o protejam em Tristram.'");
+        	System.out.println("    'Pois quando o último sábio cair, restarão apenas histórias...'");
+        	System.out.println("    '...e nenhuma voz para contá-las.'\n");
+        	System.out.println("Você sente o peso da escolha enquanto se afasta, os sinos da catedral dobrando lentamente.");
+        	System.out.println("Tristram agora é seu refúgio - e sua sentença.");
+        	System.out.println("À noite, sonha com gritos que ainda não ouviu...");
+            return false;
+        }
+        else {
+            System.out.println("Opção inválida");
+            return false;
+        }
+    }
+}
