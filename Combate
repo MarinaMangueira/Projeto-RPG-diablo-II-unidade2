@@ -1,0 +1,176 @@
+package projeto_unidade2_RPG_diablo;
+
+import java.util.ArrayList; // usado para controlar as poções
+import java.util.LinkedList; // usado para controlar a ordem dos turnos
+import java.util.Random; // usado no "sorteio" do turno
+import java.util.Scanner;
+
+public class Combate {
+    public static boolean iniciar(Player jogador) {
+        Scanner leitor = new Scanner(System.in);
+        Andariel andariel = new Andariel("Andariel, a Senhora da Dor"); // boss
+
+        ArrayList<String> potesHP = new ArrayList<>();
+        ArrayList<String> potesMP = new ArrayList<>();
+        for (int i = 0; i < 5; i++) potesHP.add("Pote de vida (HP)");
+        for (int i = 0; i < 2; i++) potesMP.add("Pote de mana (MP)");
+
+        Random sorteio = new Random();
+        boolean jogador_comeca = sorteio.nextBoolean(); // decide quem começa
+        boolean combate_ativo = true; // controle para o loop do combate
+        boolean jogador_venceu = false;
+
+        System.out.println("\nInício do combate contra Andariel!");
+        
+        // lista encadeada para definir a ordem dos turnos
+        LinkedList<String> turnos = new LinkedList<>();
+        if (jogador_comeca) {
+            turnos.add("Jogador");
+            turnos.add("Andariel");
+            System.out.println("Você ataca primeiro!");
+        } else {
+            turnos.add("Andariel");
+            turnos.add("Jogador");
+            System.out.println("Andariel ataca primeiro!");
+        }
+
+        Dano_player dano_player = new Dano_player();
+
+        // combate
+        while (combate_ativo) {
+            String turno = turnos.removeFirst(); // diz de quem é o turno
+
+            if (turno.equals("Jogador")) {
+                System.out.println("\n--- Seu turno ---");
+                System.out.println("Vida: " + jogador.getVida() + " | Mana: " + jogador.getMana());
+                System.out.println("Poções de HP: " + potesHP.size() + " | Poções de MP: " + potesMP.size());
+                System.out.println("");
+                System.out.println(" 1 - " + jogador.hab1 + " - (0 MP)");
+                System.out.println(" 2 - " + jogador.hab2 + " - (1 MP)");
+                System.out.println(" 3 - " + jogador.hab3 + " - (5 MP)");
+                System.out.println(" 4 - Usar Pote de HP (+10 Vida)");
+                System.out.println(" 5 - Usar Pote de MP (+10 Mana)");
+                System.out.print("Escolha sua ação: ");
+                int escolha = leitor.nextInt();
+
+                int dano = 0;
+
+                switch (escolha) {
+                    case 1:
+                        dano = dano_player.calcular_dano_hab1();
+                        System.out.println("Você usou: " + jogador.hab1);
+                        break;
+                    case 2:
+                        if (jogador.getMana() >= 1) {
+                            dano = dano_player.calcular_dano_hab2();
+                            jogador.setMana(jogador.getMana() - 1);
+                            System.out.println("Você usou: " + jogador.hab2);
+                        } 
+                        else {
+                            System.out.println("Mana insuficiente");
+                        }
+                        break;
+                    case 3:
+                        if (jogador.getMana() >= 5) {
+                            dano = dano_player.calcular_dano_hab3();
+                            jogador.setMana(jogador.getMana() - 5);
+                            System.out.println("Você usou: " + jogador.hab3);
+                        } 
+                        else {
+                            System.out.println("Mana insuficiente!");
+                        }
+                        break;
+                    case 4:
+                        if (!potesHP.isEmpty()) { // "está vazio"
+                            jogador.setVida(Math.min(30, jogador.getVida() + 10));
+                            potesHP.remove(0);
+                            System.out.println("Você usou um Pote de HP.");
+                        } 
+                        else {
+                            System.out.println("Sem potes de HP.");
+                        }
+                        break;
+                    case 5:
+                        if (!potesMP.isEmpty()) {
+                            jogador.setMana(Math.min(10, jogador.getMana() + 10));
+                            potesMP.remove(0);
+                            System.out.println("Você usou um Pote de MP.");
+                        } 
+                        else {
+                            System.out.println("Sem potes de MP.");
+                        }
+                        break;
+                    default:
+                        System.out.println("Ação inválida.");
+                }
+
+                if (dano > 0) { // aplica o dano ao boss
+                    andariel.vida -= dano;
+                    System.out.println("Você causou " + dano + " de dano!");
+                }
+
+                if (andariel.vida <= 0) { // caso o boss tenha sido derrotado
+                	System.out.println("\n\nCOM UM ÚLTIMO Grito que racha os céus, Andariel tomba!");
+                	System.out.println("Seu corpo demoníaco se desfaz em cinzas negras, liberando milhares de almas presas que sussurram");
+                	System.out.println("agradecimentos antes de se dissiparem na escuridão.\n");
+
+                	System.out.println("O silêncio que se segue é sagrado - o primeiro respiro de um mundo sem sua dor.");
+                	System.out.println("Você cai de joelhos, sentindo cada ferida, cada osso quebrado... mas também a vitória.\n");
+
+                	System.out.println("Ao fundo da câmara profanada, as correntes de Cain começam a se desfazer como teias ao sol.");
+                	System.out.println("Seus olhos - cansados mas ainda afiados - encontram os seus:\n");
+
+                	System.out.println("DECKARD CAIN ergue a cabeça, sua voz um misto de admiração e urgência:");
+                	System.out.println("\n    'Pelos Anciãos... você fez o impossível...'");
+                	System.out.println("    'Sinta - o próprio ar muda com a queda de uma das Quatro!'");
+                	System.out.println("    'Mas ouça-me bem, campeão... esta foi apenas a primeira nota de um canto fúnebre.'\n");
+
+                	System.out.println("Ele se inclina para frente, suas mãos ainda tremendo das torturas:");
+                	System.out.println("\n    'Diablo desperta.'");
+                	System.out.println("    'O Senhor do Terror não envia acólitos por capricho - Andariel era a guardiã de segredos horrendos...'");
+                	System.out.println("    'Segredos que agora repousam em sua mente corrompida.'\n");
+
+                	System.out.println("Um calafrio percorre sua espinha quando Cain continua:");
+                	System.out.println("\n    'Ela me arrastou pelas Catacumbas de Horazon, usando visões de meus próprios erros passados...'");
+                	System.out.println("    'Por semanas tentei resistir, escondendo os segredos dos Horadrim em cantos esquecidos da minha mente.'");
+                	System.out.println("    'Até que você veio...' seu olhar brilha com renovada determinação, 'como um farol nas trevas.'\n");
+
+                	System.out.println("COM UM GEMIDO, o velho sábio se levanta, apoiando-se em seu ombro:");
+                	System.out.println("\n    'Agora a verdadeira guerra começa. Diablo busca seus irmãos perdidos - Mefisto no Templo Caído,'");
+                	System.out.println("    'Baal nas Estepes Ardentes... Se os Três se reunirem novamente,'");
+                	System.out.println("    'nenhum exército, nenhuma magia poderá detê-los.'\n");
+
+                	System.out.println("Ele aperta seu braço com força surpreendente:");
+                	System.out.println("\n    'Voltemos a Tristram. O mundo precisa saber...'");
+                	System.out.println("    'E você, meu caro salvador, precisa se preparar.'");
+                	System.out.println("    'Pois quando o Lorde do Terror vier...'");
+                	System.out.println("    'será seu nome que ele gritará com ódio.'\n\n");
+                    
+                    combate_ativo = false;
+                    jogador_venceu = true;
+                } 
+                else {
+                    turnos.add("Andariel"); // retorna o turno do boss, caso ainda esteja vivo
+                }
+            } 
+            else if (turno.equals("Andariel")) {
+                System.out.println("\n--- Turno de Andariel ---");
+                int dano = andariel.atacar(); // calcula o dano do boss
+                jogador.setVida(jogador.getVida() - dano);
+                System.out.println("Andariel ataca e causa " + dano + " de dano!");
+
+                if (jogador.getVida() <= 0) {
+                    System.out.println("Você foi derrotado por Andariel...");
+                    System.out.println("Você ainda não é páreo para enfrentar o mal.");
+                    combate_ativo = false;
+                    jogador_venceu = false;
+                } 
+                else {
+                    turnos.add("Jogador");
+                }
+            }
+        }
+        
+        return jogador_venceu; // retorna se o jogador venceu ou não
+    }
+}
