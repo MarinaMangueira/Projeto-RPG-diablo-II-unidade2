@@ -1,0 +1,39 @@
+package projeto_unidade2_RPG_diablo;
+
+public class Inicio {
+    public static void main(String args[]) {
+        // cria o jogador principal
+        Player player = Player_info.criar();
+        player.exibir_player();
+
+        // inicia a missão do puzzle
+        boolean puzzle_resolvido = Puzzle.iniciar_missao();
+
+        if (puzzle_resolvido) {
+            // inicia o combate contra Andariel
+            boolean combate_vitoria = Combate.iniciar(player);
+
+            if (combate_vitoria) {
+                System.out.println("\nVitória!\n\n");
+                
+                // cria o jogador pós-missão com valores padrão
+                Player_pos_quest player_pos_quest = new Player_pos_quest(); 
+                
+                // ceckard Cain oferece serviços
+                Deckard deckard = new Deckard();
+                
+                // inicia a cena de retorno e identificação de pergaminhos
+                Retorno_Tristram retorno = new Retorno_Tristram();
+                retorno.realizar_retorno(player_pos_quest, deckard);
+                
+            }
+            else {
+                System.out.println("\nDerrota!");
+                System.out.println("O mundo está condenado sem a ajuda de Deckard Cain.");
+            }
+        }
+        else {
+            System.out.println("O conhecimento dos Horadrim se perdeu...");
+        }
+    }
+}
