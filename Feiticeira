@@ -1,0 +1,26 @@
+package projeto_unidade2_RPG_diablo;
+
+public class Feiticeira extends Player {
+    public Feiticeira(String nome) {
+        super(nome);
+        this.classe = "Feiticeira";
+        this.hab1 = "Ataque básico (ataca com o cajado)";
+        this.hab2 = "Raios (dispara raios nos inimigos)";
+        this.hab3 = "Meteoro (atira uma bola de fogo no inimigo)";
+    }
+
+    @Override
+    public String toString() {
+        return "\n--------------------\n" +
+               "     FEITICEIRA       \n" +
+               "--------------------\n" +
+               " Nome   : " + nome + "\n" +
+               " Classe : " + classe + "\n" +
+               " Vida   : " + vida + "\n" +
+               " Mana   : " + mana + "\n" +
+               " Habilidade 1: " + hab1 + "\n" +
+               " Habilidade 2: " + hab2 + "\n" +
+               " Habilidade 3: " + hab3 + "\n" +
+               "--------------------\n";
+    }
+}
