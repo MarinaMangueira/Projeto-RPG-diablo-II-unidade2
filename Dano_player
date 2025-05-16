@@ -1,0 +1,23 @@
+package projeto_unidade2_RPG_diablo;
+
+import java.util.Random;
+
+public class Dano_player {
+    private Random gerador;
+
+    public Dano_player() {
+        gerador = new Random();	
+    }
+
+    public int calcular_dano_hab1() {
+        return gerador.nextInt(5) + 1; // dano entre 1 e 5
+    }
+
+    public int calcular_dano_hab2() {
+        return gerador.nextInt(5) + 4; // dano entre 4 e 8
+    }
+
+    public int calcular_dano_hab3() {
+        return gerador.nextInt(8) + 8; // dano entre 8 e 15
+    }
+}
