@@ -1,0 +1,19 @@
+package projeto_unidade2_RPG_diablo;
+
+public abstract class Item_magico {
+    protected String nome;
+    protected String descricao;
+
+    public Item_magico(String nome, String descricao) {
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+}
