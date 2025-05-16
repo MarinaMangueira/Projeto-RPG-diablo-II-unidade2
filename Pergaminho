@@ -1,0 +1,34 @@
+package projeto_unidade2_RPG_diablo;
+
+public class Pergaminho extends Item_magico implements Identificavel {
+    private boolean identificado; // indica se o pergaminho foi identificado ou não
+
+    public Pergaminho(String nome, String descricao, boolean identificado) {
+        super(nome, descricao);
+        this.identificado = identificado;
+    }
+
+    // get e set 
+    public boolean isIdentificado() {
+        return identificado;
+    }
+
+    public void setIdentificado(boolean identificado) {
+        this.identificado = identificado;
+    }
+
+    @Override
+    public void identificar() {
+        if (!identificado) {
+            if (descricao.equals("Um pergaminho com runas antigas")) {
+                this.nome = "Pergaminho de Portal";
+                this.descricao = "Este pergaminho abre um portal mágico para Tristram";
+            } 
+            else if (descricao.equals("Um pergaminho com símbolos misteriosos")) {
+                this.nome = "Pergaminho de Identificação";
+                this.descricao = "Este pergaminho revela propriedades de itens mágicos";
+            }
+            identificado = true;
+        }
+    }
+}
