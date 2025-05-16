@@ -1,0 +1,44 @@
+package projeto_unidade2_RPG_diablo;
+
+public class Player_pos_quest {
+    private int vida;
+    private int mana;
+    private int gold;
+
+    // construtor vazio com valores padrão
+    public Player_pos_quest() {
+        this.vida = 30;  // valores iniciais
+        this.mana = 10;  
+        this.gold = 20;  
+    }
+
+    public Player_pos_quest(int vida, int mana, int gold) {
+        this.vida = vida;
+        this.mana = mana;
+        this.gold = gold;
+    }
+
+    public int getVida() {
+        return vida;
+    }
+
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
+
+    public int getMana() {
+        return mana;
+    }
+
+    public void setMana(int mana) {
+        this.mana = mana;
+    }
+
+    public int getGold() {
+        return gold;
+    }
+
+    public void setGold(int gold) {
+        this.gold = gold;
+    }
+}
