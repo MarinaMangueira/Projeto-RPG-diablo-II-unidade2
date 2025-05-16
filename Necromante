@@ -1,0 +1,26 @@
+package projeto_unidade2_RPG_diablo;
+
+public class Necromante extends Player {
+    public Necromante(String nome) {
+        super(nome);
+        this.classe = "Necromante";
+        this.hab1 = "Ataque básico (ataca com o cajado)";
+        this.hab2 = "Ritual sombrio (ataca com uma esfera de escuridão)";
+        this.hab3 = "Explosão cadavérica (explode os cadáveres que estão no chão)";
+    }
+
+    @Override
+    public String toString() {
+        return "\n--------------------\n" +
+               "     NECROMANTE     \n" +
+               "--------------------\n" +
+               " Nome   : " + nome + "\n" +
+               " Classe : " + classe + "\n" +
+               " Vida   : " + vida + "\n" +
+               " Mana   : " + mana + "\n" +
+               " Habilidade 1: " + hab1 + "\n" +
+               " Habilidade 2: " + hab2 + "\n" +
+               " Habilidade 3: " + hab3 + "\n" +
+               "--------------------\n";
+    }
+}
