@@ -1,0 +1,26 @@
+package projeto_unidade2_RPG_diablo;
+
+public class Paladino extends Player {
+    public Paladino(String nome) {
+        super(nome);
+        this.classe = "Paladino";
+        this.hab1 = "Ataque básico (ataca com o martelo)";
+        this.hab2 = "Martelo sagrado (joga o martelo com uma aura de luz no inimigo)";
+        this.hab3 = "Golpe cruzado (um golpe em forma de cruz com o martelo)";
+    }
+
+    @Override
+    public String toString() {
+        return "\n--------------------\n" +
+               "      PALADINO        \n" +
+               "--------------------\n" +
+               " Nome   : " + nome + "\n" +
+               " Classe : " + classe + "\n" +
+               " Vida   : " + vida + "\n" +
+               " Mana   : " + mana + "\n" +
+               " Habilidade 1: " + hab1 + "\n" +
+               " Habilidade 2: " + hab2 + "\n" +
+               " Habilidade 3: " + hab3 + "\n" +
+               "--------------------\n";
+    }
+}
