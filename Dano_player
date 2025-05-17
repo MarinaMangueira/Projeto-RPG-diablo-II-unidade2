@@ -21,3 +21,4 @@ public class Dano_player {
         return gerador.nextInt(8) + 8; // dano entre 8 e 15
     }
 }
+
