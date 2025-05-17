@@ -41,8 +41,12 @@ public class Combate {
             String turno = turnos.removeFirst(); // diz de quem é o turno
 
             if (turno.equals("Jogador")) {
-                System.out.println("\n--- Seu turno ---");
+            	System.out.println("\n┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+            	System.out.println("┃          SEU TURNO         ┃");
+            	System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
                 System.out.println("Vida: " + jogador.getVida() + " | Mana: " + jogador.getMana());
+             // size é um método que retorna um inteiro com a quantidade de itens armazenados na coleção
+             // é como se fosse o length da coleção
                 System.out.println("Poções de HP: " + potesHP.size() + " | Poções de MP: " + potesMP.size());
                 System.out.println("");
                 System.out.println(" 1 - " + jogador.hab1 + " - (0 MP)");
@@ -154,7 +158,9 @@ public class Combate {
                 }
             } 
             else if (turno.equals("Andariel")) {
-                System.out.println("\n--- Turno de Andariel ---");
+            	System.out.println("\n┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+            	System.out.println("┃      TURNO DE ANDARIEL     ┃");
+            	System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
                 int dano = andariel.atacar(); // calcula o dano do boss
                 jogador.setVida(jogador.getVida() - dano);
                 System.out.println("Andariel ataca e causa " + dano + " de dano!");
