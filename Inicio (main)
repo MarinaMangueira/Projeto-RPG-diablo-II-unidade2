@@ -14,8 +14,10 @@ public class Inicio {
             boolean combate_vitoria = Combate.iniciar(player);
 
             if (combate_vitoria) {
-                System.out.println("\nVitória!\n\n");
-                
+            	System.out.println("\n┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+            	System.out.println("┃            VITÓRIA!           ┃");
+            	System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+            	System.out.println("- Você triunfou sobre as forças das trevas. ");               
                 // cria o jogador pós-missão com valores padrão
                 Player_pos_quest player_pos_quest = new Player_pos_quest(); 
                 
@@ -28,8 +30,10 @@ public class Inicio {
                 
             }
             else {
-                System.out.println("\nDerrota!");
-                System.out.println("O mundo está condenado sem a ajuda de Deckard Cain.");
+            	System.out.println("\n┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+            	System.out.println("┃            DERROTA!           ┃");
+            	System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
+                System.out.println("- O mundo está condenado sem a ajuda de Deckard Cain.");
             }
         }
         else {
