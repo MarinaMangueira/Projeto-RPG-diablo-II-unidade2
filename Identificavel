@@ -3,3 +3,4 @@ package projeto_unidade2_RPG_diablo;
 interface Identificavel {
     void identificar();
 }
+
