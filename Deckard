@@ -1,13 +1,23 @@
 package projeto_unidade2_RPG_diablo;
 
 public class Deckard {
-    public void identificar_pergaminho(Pergaminho pergaminho) {
-        System.out.println("\nDeckard Cain pega o pergaminho e começa a murmurar encantamentos...");
-        pergaminho.identificar();
-        System.out.println("'Ah! Este é um " + pergaminho.getNome() + "'");
-        System.out.println("'" + pergaminho.getDescricao() + "'");
-        System.out.println("'Agora você pode usá-lo quando quiser.'");
-    }
+	public void identificar_pergaminho(Pergaminho pergaminho) {
+	    System.out.println("\nDeckard Cain aceita o pergaminho com mãos trêmulas, seus olhos brilhando:");
+	    System.out.println("    'Ah, deixe-me ver o que os antigos esconderam aqui...'");
+	    
+	    System.out.println("\nEle traça runas no ar enquanto murmura palavras esquecidas:");
+	    System.out.println("    'Vas Ort Flam... Yesh Neth Ort...'");
+	    
+	    pergaminho.identificar(); 
+	    
+	    System.out.println("\n    'Interessante! Muito interessante!' ele exclama, limpando a garganta em seguida.");
+	    System.out.println("    'Este é um " + pergaminho.getNome() + " dos tempos de Horazon!'");
+	    System.out.println("    '" + pergaminho.getDescricao() + "'");
+	    
+	    System.out.println("\nCain enrola cuidadosamente o pergaminho e o devolve:");
+	    System.out.println("    'Guarde este conhecimento com sabedoria, meu jovem.'");
+	    System.out.println("    'Quando a hora certa chegar, as palavras despertarão seu poder.'");
+	}
 
     public void ler_pergaminho(Identificavel item) {
         item.identificar(); // chama o método que está definido na interface Identificavel
