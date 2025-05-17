@@ -40,18 +40,23 @@ public class Retorno_Tristram {
         Pergaminho pergaminho_portal = new Pergaminho("Não identificado", "Um pergaminho com runas antigas", false);
         Pergaminho pergaminho_identificacao = new Pergaminho("Não identificado", "Um pergaminho com símbolos misteriosos", false);
         
-        System.out.println("\nDeckard Cain: ");
-        System.out.println("'Vejo que você encontrou alguns pergaminhos interessantes durante sua jornada.'");
-        System.out.println("'Posso identificá-los para você, mas meu conhecimento tem um custo.'");
+        System.out.println("\nDeckard Cain, inclina-se sobre os pergaminhos com movimentos estudados:");
+        System.out.println("Seus dedos nodosos deslizam sobre os símbolos antigos enquanto um brilho de reconhecimento");
+        System.out.println("acende em seus olhos - aquele mesmo que iluminava os arquivos de Vizjerei em tempos passados.");
+        System.out.println("");
+        System.out.println("    'Interessantes achados, viajante. Estes pergaminhos contêm'");
+        System.out.println("    'conhecimentos perigosos... Posso decifrá-los por você.'");
+        System.out.println("");
+        System.out.println("    'Naturalmente,' ele sorri levemente, 'por uma modesta taxa.'");
 
         // caso o jogador queira identificar os pergaminhos
         boolean identificando = true; 
         while (identificando) {
             System.out.println("\nSeu ouro atual: " + player_pos_quest.getGold());
             System.out.println("\nPergaminhos disponíveis para identificação:");
-            System.out.println("1 - " + pergaminho_portal.getNome() + " (Custo: 20 de ouro)");
-            System.out.println("2 - " + pergaminho_identificacao.getNome() + " (Custo: 15 de ouro)");
-            System.out.println("3 - Sair");
+            System.out.println(" 1 - " + pergaminho_portal.getNome() + " (Custo: 20 de ouro)");
+            System.out.println(" 2 - " + pergaminho_identificacao.getNome() + " (Custo: 15 de ouro)");
+            System.out.println(" 3 - Sair");
             System.out.print("Escolha uma opção: ");
             
             int escolha = leitor.nextInt();
@@ -90,39 +95,40 @@ public class Retorno_Tristram {
         }
 
         // Status final
-        System.out.println("\n--------------------");
-        System.out.println("    Status final ");
-        System.out.println("--------------------");
-        System.out.println("Vida: " + player_pos_quest.getVida());
-        System.out.println("Mana: " + player_pos_quest.getMana());
-        System.out.println("Gold: " + player_pos_quest.getGold());
-        System.out.println("--------------------");
+        System.out.println("\n┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓");
+        System.out.println("┃           STATUS FINAL          ┃");
+        System.out.println("┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫");
+        System.out.println("┃Vida: " + player_pos_quest.getVida() + "                         ┃");
+        System.out.println("┃Mana: " + player_pos_quest.getMana() + "                         ┃");
+        System.out.println("┃Gold: " + player_pos_quest.getGold() + "                         ┃");
+        System.out.println("┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛");
         
         System.out.println("\n\n");
-        System.out.println("        A luz triunfou... mas sua vitória é frágil como o último suspiro do crepúsculo.");
+        System.out.println("     - A luz triunfou... mas sua vitória é frágil como o último suspiro do crepúsculo.");
         System.out.println("\n");
         System.out.println("Tristram respira aliviada com o retorno de Deckard Cain, suas ruínas agora banhadas");
         System.out.println("por um vislumbre de esperança. Os sinos da catedral ecoam como lamentos ancestrais,");
         System.out.println("celebrando não o fim, mas um breve repouso na escuridão.");
         System.out.println("\n\n");
-        System.out.println("        Mas nas profundezas onde até os corajosos não ousam pisar...");
-        System.out.println("        Algo desperta.");
+        System.out.println("     - Mas nas profundezas onde até os corajosos não ousam pisar...");
+        System.out.println("     - Algo desperta.");
         System.out.println("\n");
         System.out.println("O ar se enche do cheiro de enxofre. Sombras se contorcem sob a terra, como garras afiadas");
         System.out.println("prontas para rasgar o véu do mundo. O verdadeiro mal não foi derrotado — Diablo aguarda.");
         System.out.println("Seu ódio é paciente. Sua vingança, inevitável.");
         System.out.println("\n\n");
-        System.out.println("        Prepare-se, viajante.");
-        System.out.println("        O que vem não é uma batalha...");
-        System.out.println("        É o fim de tudo.");
+        System.out.println("      - Prepare-se, viajante.");
+        System.out.println("      - O que vem não é uma batalha...");
+        System.out.println("      - É o fim de tudo.");
         System.out.println("\n");
         System.out.println("A escuridão se aproxima.");
         System.out.println("E desta vez... ela virá implacável.");
         System.out.println("\n\n");
-        System.out.println("        --> TO BE CONTINUED");
+        System.out.println("        --> TO BE CONTINUED...");
         System.out.println("\n\n");
 
         leitor.close();
     }
 }
+
 
