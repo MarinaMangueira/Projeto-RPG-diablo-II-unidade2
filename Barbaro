@@ -11,16 +11,17 @@ public class Barbaro extends Player {
 
     @Override
     public String toString() {
-        return "\n--------------------\n" +
-               "       BÁRBARO        \n" +
-               "--------------------\n" +
-               " Nome   : " + nome + "\n" +
-               " Classe : " + classe + "\n" +
-               " Vida   : " + vida + "\n" +
-               " Mana   : " + mana + "\n" +
-               " Habilidade 1: " + hab1 + "\n" +
-               " Habilidade 2: " + hab2 + "\n" +
-               " Habilidade 3: " + hab3 + "\n" +
-               "--------------------\n";
+    	return "\n┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n" +
+                "┃                         BÁRBARO                          ┃\n" +
+                "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫\n" +
+                "┃ Nome   : " + nome + "                                          ┃\n" +
+                "┃ Classe : " + classe + "                                         ┃\n" +
+                "┃ Vida   : " + vida + "                                              ┃\n" +
+                "┃ Mana   : " + mana + "                                              ┃\n" +
+                "┃ Habilidade 1: " + hab1 + "        ┃\n" +
+                "┃ Habilidade 2: " + hab2 + "       ┃\n" +
+                "┃ Habilidade 3: " + hab3 + " ┃\n" +
+                "┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛\n";
     }
 }
+
