@@ -1,6 +1,6 @@
 package projeto_unidade2_RPG_diablo;
 
-import java.util.Random;
+import java.util.Random; // usado no sorteio do labirinto
 import java.util.Scanner;
 
 public class Puzzle {
@@ -69,12 +69,12 @@ public class Puzzle {
     }
 
     // Método auxiliar para verificar a sequência de pedras
-    private static boolean verificarSequencia(Scanner leitor, int[] ordemCorreta) {
-        for (int i = 0; i < ordemCorreta.length; i++) {
+    private static boolean verificar_sequencia(Scanner leitor, int ordem_correta[]) {
+        for (int i = 0; i < ordem_correta.length; i++) {
             System.out.print("Informe a posição da " + (i + 1) + "° pedra: ");
             int entrada = leitor.nextInt();
             
-            if (entrada != ordemCorreta[i]) {
+            if (entrada != ordem_correta[i]) {
                 System.out.println("\nA pedra emite um som agudo e se apaga...");
                 System.out.println("Você sente que deve começar novamente desde o início.");
                 return false;
@@ -126,7 +126,7 @@ public class Puzzle {
 
             do {
                 System.out.println("\n        Tentativa #" + tentativa);
-                sucesso = verificarSequencia(leitor, ordem_correta);
+                sucesso = verificar_sequencia(leitor, ordem_correta);
 
                 if (sucesso) {
                     System.out.println("\nAs pedras pulsam com luz rubra, desenhando no ar a sequência ancestral...");
@@ -173,7 +173,7 @@ public class Puzzle {
             System.out.println("O labirinto se fecha novamente. Talvez em outra hora...");
             return false;
         } 
-        else if (aceitar == 2) {
+        else if (aceitar == 2) { 
             System.out.println("\nAkara fecha os olhos por um longo momento, suas mãos tremulas repousando sobre o grimório ancestral.");
             System.out.println("Quando os abre novamente, seus olhos brilham com lágrimas não derramadas:\n");
             System.out.println("    'Compreendo sua decisão, viajante...' sua voz é suave como seda rasgada");
