@@ -47,7 +47,7 @@ public class Player {
     @Override
     public String toString() {
     	return "\n┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓\n" +
-                "┃           JOGADOR          ┃ \n" +
+                "┃          JOGADOR           ┃ \n" +
                 "┣━━━━━━━━━━━━━━━━━━━━━━━━━━━━┫\n" +
                 "┃ Nome   : " + nome + "            ┃\n" +
                 "┃ Classe : " + classe + "              ┃\n" +
